@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vila dos Corais — Litoral Norte da Bahia</title>
+<meta name="description" content="Oito casas entre o recife e a mata, no litoral norte da Bahia. Reserva direta, sem comissão.">
+<meta name="theme-color" content="#2A2C2B">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Vila dos Corais">
+<meta property="og:title" content="Vila dos Corais — Litoral Norte da Bahia">
+<meta property="og:description" content="Oito casas entre o recife e a mata. Abertas o ano inteiro.">
+<meta property="og:image" content="/assets/folhas/01-capa.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<a class="pular" href="#conteudo">Ir para o conteúdo</a>
+
+<!-- bolinha que persegue o mouse -->
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- ===================== CABEÇALHO ===================== -->
+<header class="topo">
+  <a class="topo__marca" href="#inicio">Villa dos Corais</a>
+
+  <button class="topo__menu" id="abrirMenu" aria-expanded="false" aria-controls="painel">
+    <span data-i18n="ui.menu">Menu</span>
+  </button>
+
+  <div class="topo__dir">
+    <div class="idiomas" role="group" aria-label="Idioma">
+      <button type="button" data-lang="pt" aria-current="true">PT</button>
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="es">ES</button>
+    </div>
+    <a class="topo__cta" href="#reservar" data-i18n="ui.reservar">Reservar</a>
+  </div>
+</header>
+
+<!-- ===================== PAINEL DE NAVEGAÇÃO ===================== -->
+<div class="painel" id="painel" inert>
+  <div class="painel__topo">
+    <span class="painel__marca">Villa dos Corais — Bahia</span>
+    <button class="painel__fechar" id="fecharMenu">
+      <span data-i18n="ui.fechar">Fechar</span> <i aria-hidden="true">×</i>
+    </button>
+  </div>
+
+  <nav class="painel__nav" aria-label="Capítulos">
+    <ol>
+      <li><a href="#a-vila"><em>01</em><span data-i18n="nav.1">A Vila</span></a></li>
+      <li><a href="#o-lugar"><em>02</em><span data-i18n="nav.2">O Lugar</span></a></li>
+      <li><a href="#as-casas"><em>03</em><span data-i18n="nav.3">As Casas</span></a></li>
+      <li><a href="#mesa"><em>04</em><span data-i18n="nav.4">A Mesa</span></a></li>
+      <li><a href="#bem-estar"><em>05</em><span data-i18n="nav.5">Bem-estar</span></a></li>
+      <li><a href="#experiencias"><em>06</em><span data-i18n="nav.6">Experiências</span></a></li>
+      <li><a href="#sustentabilidade"><em>07</em><span data-i18n="nav.7">Sustentabilidade</span></a></li>
+    </ol>
+  </nav>
+
+  <div class="painel__pe">
+    <a href="mailto:contato@villadoscorais.com.br">contato@villadoscorais.com.br</a>
+    <a href="#">Instagram</a>
+    <span>Litoral Norte — BA</span>
+  </div>
+</div>
+
+<main id="conteudo">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="inicio">
+    <!-- MÍDIA 01 — foto de abertura, 1920x1080 -->
+    <img class="midia midia--capa midia--folha" src="" width="1920" height="1080"
+         alt="Folha 01 — Subaúma, litoral norte da Bahia" fetchpriority="high" decoding="async">
+    <canvas class="hero__corais" id="cena" aria-hidden="true"></canvas>
+    <div class="hero__veu" aria-hidden="true"></div>
+
+    <div class="hero__texto">
+      <h1 data-i18n="hero.titulo">O encontro onde<br>o mar ainda tem hora</h1>
+      <a class="elo" href="#a-vila"><span data-i18n="hero.cta">Explorar</span><i aria-hidden="true">↗</i></a>
+    </div>
+  </section>
+
+  <!-- ===================== 01 · A VILA ===================== -->
+  <section class="capitulo capitulo--fundo" id="a-vila">
+    <!-- MÍDIA 02 — fundo do capítulo, 1920x1200 -->
+    <img class="midia midia--fundo midia--folha" src="" width="1920" height="1080"
+         alt="Folha 02 — onde fica Subaúma" decoding="async">
+    <!-- MÍDIA 03 — selo / brasão, 400x400 PNG transparente -->
+    <img class="midia midia--selo midia--folha" src="/assets/folhas/03-como-chegar.webp" width="1920" height="1080"
+         alt="Folha 03 — como chegar a Subaúma" loading="lazy" decoding="async">
+    <p class="frase frase--solta" data-i18n="vila.frase">aqui o mar não se anuncia. Ele chega.</p>
+  </section>
+
+  <section class="capitulo">
+    <div class="dupla">
+      <div class="dupla__texto">
+        <span class="olho" data-i18n="vila.olho">villa dos corais — litoral norte</span>
+        <h2 class="brilho" data-i18n="vila.titulo">UM REFÚGIO PARA<br>SE FAZER PRESENTE</h2>
+        <p data-i18n="vila.p1">Entre o rio, o recife e a mata, a Vila encontrou seu lugar. Oito casas feitas para pertencer à paisagem e respeitar o ritmo dela. Aqui, conforto e natureza não disputam atenção. Apenas acontecem juntos.</p>
+      </div>
+      <!-- MÍDIA 04 — retrato do lugar, 1200x1500 -->
+      <img class="midia midia--retrato midia--folha" src="/assets/folhas/04-costa-dos-coqueiros.webp" width="1920" height="1080"
+         alt="Folha 04 — a Costa dos Coqueiros" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <p class="frase" data-i18n="vila.frase2">Somos feitos de maré, areia, memória e gente daqui.</p>
+
+  <!-- GALERIA A — 3 fotos -->
+  <section class="galeria">
+    <img class="midia midia--galeria midia--folha" src="/assets/folhas/05-vizinhanca.webp" width="1920" height="1080"
+         alt="Folha 05 — a vizinhança de Subaúma" loading="lazy" decoding="async">
+    <img class="midia midia--galeria midia--folha" src="/assets/folhas/06-vila-de-pescadores.webp" width="1920" height="1080"
+         alt="Folha 06 — a vila de pescadores" loading="lazy" decoding="async">
+    <img class="midia midia--galeria midia--folha" src="/assets/folhas/07-areia-e-coqueiral.webp" width="1920" height="1080"
+         alt="Folha 07 — areia e coqueiral" loading="lazy" decoding="async">
+  </section>
+
+  <!-- ===================== 02 · O LUGAR ===================== -->
+  <section class="capitulo" id="o-lugar">
+    <div class="dupla dupla--invertida">
+      <!-- MÍDIA 08 — paisagem, 1200x1500 -->
+      <img class="midia midia--retrato midia--folha" src="/assets/folhas/08-recifes.webp" width="1920" height="1080"
+         alt="Folha 08 — os recifes" loading="lazy" decoding="async">
+      <div class="dupla__texto">
+        <span class="olho" data-i18n="lugar.olho">o lugar</span>
+        <h2 class="brilho" data-i18n="lugar.titulo">Onde o rio<br>encontra o recife</h2>
+        <p data-i18n="lugar.p1">Na maré baixa o recife aparece a duzentos metros da varanda e deixa piscinas mornas que duram até o fim da tarde. É o relógio daqui. Não há outro.</p>
+        <a class="elo" href="#reservar"><span data-i18n="lugar.cta">Comece sua descoberta</span><i aria-hidden="true">↗</i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA B — 3 fotos -->
+  <section class="galeria">
+    <img class="midia midia--galeria midia--folha" src="/assets/folhas/09-piscinas-naturais.webp" width="1920" height="1080"
+         alt="Folha 09 — as piscinas naturais na maré baixa" loading="lazy" decoding="async">
+    <img class="midia midia--galeria midia--folha" src="/assets/folhas/10-mar-aberto.webp" width="1920" height="1080"
+         alt="Folha 10 — o mar aberto" loading="lazy" decoding="async">
+    <img class="midia midia--galeria midia--folha" src="/assets/folhas/11-mare.webp" width="1920" height="1080"
+         alt="Folha 11 — o ciclo da maré" loading="lazy" decoding="async">
+  </section>
+
+  <!-- ===================== 03 · AS CASAS — efeito: foto abre pro lado ===================== -->
+  <section class="capitulo" id="as-casas">
+    <div class="abre" data-efeito>
+      <div class="abre__texto">
+        <span class="olho" data-i18n="casas.olho">as casas</span>
+        <h2 data-i18n="casas.titulo">Seu espaço entre<br>o mundo e o mar</h2>
+        <p data-i18n="casas.p1">Oito casas privadas, pensadas para o que acontece quando o mundo fica do lado de fora. A luz entra. A brisa atravessa. A natureza acha o caminho para dentro.</p>
+        <a class="elo" href="#reservar"><span data-i18n="casas.cta">Ver disponibilidade</span><i aria-hidden="true">↗</i></a>
+      </div>
+      <!-- MÍDIA 12 — interior da casa, 1600x1000 -->
+      <img class="abre__painel midia midia--folha" src="/assets/folhas/12-seguranca.webp" width="1920" height="1080"
+         alt="Folha 12 — segurança na água" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <p class="frase" data-i18n="mesa.frase">Há quem cozinhe para impressionar. E há quem cozinhe para revelar.</p>
+
+  <!-- VÍDEO 01 -->
+  <section class="video">
+    <video class="midia midia--video" id="filme"
+           poster="/assets/video/subauma-poster.webp"
+           width="1600" height="900"
+           muted loop playsinline preload="metadata"
+           aria-label="Subaúma em 21 folhas — vídeo de 21 segundos, sem som">
+      <source src="/assets/video/subauma.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <!-- ===================== 04 · A MESA ===================== -->
+  <section class="capitulo" id="mesa">
+    <div class="dupla">
+      <div class="dupla__texto">
+        <span class="olho" data-i18n="mesa.olho">a mesa</span>
+        <h2 class="brilho" data-i18n="mesa.titulo">Uma cozinha que celebra<br>a terra e o mar</h2>
+        <p data-i18n="mesa.p1">O peixe que chega de manhã. As ervas, as frutas e os temperos que nascem na mata aqui do lado. Ingredientes escolhidos pelo frescor, pela origem e pela história que carregam.</p>
+        <blockquote data-i18n="mesa.citacao">Não é trazer uma cozinha de fora para cá. É criar, a partir daqui, uma mesa com língua própria.</blockquote>
+        <a class="elo" href="#reservar"><span data-i18n="mesa.cta">Descubra os sabores</span><i aria-hidden="true">↗</i></a>
+      </div>
+      <figure class="retrato-assinado">
+        <!-- MÍDIA 14 — retrato de quem cozinha, 1200x1500 -->
+        <img class="midia midia--retrato midia--folha" src="/assets/folhas/14-banho-de-rio.webp" width="1920" height="1080"
+         alt="Folha 14 — banho de rio" loading="lazy" decoding="async">
+        <figcaption data-i18n="mesa.assinatura">Dona Ivone<br>cozinha da Vila</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- TRÍPTICO — 3 fotos -->
+  <section class="galeria galeria--triptico">
+    <img class="midia midia--galeria midia--folha" src="/assets/folhas/15-lagoas.webp" width="1920" height="1080"
+         alt="Folha 15 — as lagoas" loading="lazy" decoding="async">
+    <img class="midia midia--galeria midia--folha" src="/assets/folhas/16-lencol-freatico.webp" width="1920" height="1080"
+         alt="Folha 16 — o lençol freático" loading="lazy" decoding="async">
+    <img class="midia midia--galeria midia--folha" src="/assets/folhas/17-farol.webp" width="1920" height="1080"
+         alt="Folha 17 — o farol" loading="lazy" decoding="async">
+  </section>
+
+  <!-- ===================== 05 · BEM-ESTAR — efeito: meia-lua ===================== -->
+  <section class="capitulo" id="bem-estar">
+    <div class="dupla dupla--invertida">
+      <!-- MÍDIA 18 — meia-lua, 1200x1500 -->
+      <img class="midia midia--retrato midia--folha meia-lua" src="/assets/folhas/18-lagoa-verde.webp" width="1920" height="1080"
+         alt="Folha 18 — a Lagoa Verde" data-efeito loading="lazy" decoding="async">
+      <div class="dupla__texto">
+        <span class="olho" data-i18n="bem.olho">bem-estar</span>
+        <h2 class="brilho" data-i18n="bem.titulo">Um retorno ao seu<br>próprio ritmo</h2>
+        <p data-i18n="bem.p1">Há um tempo que pertence só ao corpo. Água morna, sal, sombra e silêncio. Aqui, descansar não é pausa no caminho. É o caminho.</p>
+        <a class="elo" href="#reservar"><span data-i18n="bem.cta">Encontre o seu ritmo</span><i aria-hidden="true">↗</i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÍDIA 19 — banho de sombra, 1600x1000 -->
+  <section class="capitulo capitulo--estreito">
+    <img class="midia midia--larga midia--folha" src="/assets/folhas/19-estrutura.webp" width="1920" height="1080"
+         alt="Folha 19 — a estrutura do distrito" loading="lazy" decoding="async">
+  </section>
+
+  <!-- ===================== 06 · EXPERIÊNCIAS ===================== -->
+  <section class="capitulo" id="experiencias">
+    <h2 class="brilho centro" data-i18n="exp.titulo">Os dias</h2>
+    <ul class="dias">
+      <li><b data-i18n="exp.1h">7h</b><span data-i18n="exp.1">Café na varanda, servido até as dez</span></li>
+      <li><b data-i18n="exp.2h">10h</b><span data-i18n="exp.2">Travessia a pé até as piscinas naturais, quando a maré permite</span></li>
+      <li><b data-i18n="exp.3h">16h</b><span data-i18n="exp.3">Canoa no rio, com o guia da Vila</span></li>
+      <li><b data-i18n="exp.4h">20h</b><span data-i18n="exp.4">Jantar com o peixe que chegou de manhã</span></li>
+    </ul>
+  </section>
+
+  <!-- ===================== 07 · SUSTENTABILIDADE ===================== -->
+  <section class="capitulo" id="sustentabilidade">
+    <div class="dupla">
+      <div class="dupla__texto">
+        <span class="olho" data-i18n="sus.olho">sustentabilidade</span>
+        <h2 class="brilho" data-i18n="sus.titulo">O recife não é<br>cenário. É vizinho.</h2>
+        <p data-i18n="sus.p1">Água de reuso nos jardins, energia solar no telhado e nenhum protetor solar com oxibenzona dentro d'água. A equipe é toda da região. O peixe vem da colônia daqui.</p>
+      </div>
+      <!-- MÍDIA 20 — detalhe do recife, 1200x1500 -->
+      <img class="midia midia--retrato midia--folha" src="/assets/folhas/20-quando-ir.webp" width="1920" height="1080"
+         alt="Folha 20 — quando ir a Subaúma" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <!-- ===================== FECHAMENTO ===================== -->
+  <section class="fechamento">
+    <!-- MÍDIA 21 — encerramento, 1920x1200 -->
+    <img class="midia midia--fundo midia--folha" src="/assets/folhas/21-fecho.webp" width="1920" height="1080"
+         alt="Folha 21 — Subaúma, encerramento" loading="lazy" decoding="async">
+    <p class="frase frase--solta" data-i18n="fim.frase">Como o rio e o mar, que a vida inteira caminham um para o outro, para descobrir no encontro que nunca estiveram sós.</p>
+  </section>
+
+  <!-- ===================== RESERVAR ===================== -->
+  <section class="reservar" id="reservar">
+    <span class="olho" data-i18n="res.olho">o ano inteiro</span>
+    <h2 class="brilho centro" data-i18n="res.titulo">há encontros que<br>começam antes</h2>
+    <p data-i18n="res.p">Reserva direta, sem comissão de plataforma. Respondemos no mesmo dia.</p>
+    <a class="botao" id="zap" href="#" data-i18n="res.cta">Falar no WhatsApp</a>
+  </section>
+
+</main>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="rodape">
+  <div class="rodape__marca">
+    <span class="rodape__logo">Vila dos Corais</span>
+    <p data-i18n="rodape.sobre">Oito casas entre o recife e a mata.<br>Litoral Norte da Bahia.<br>Abertas o ano inteiro.</p>
+    <div class="rodape__redes">
+      <a href="#">Instagram</a>
+      <a href="mailto:contato@viladoscorais.com.br">E-mail</a>
+    </div>
+  </div>
+
+  <nav class="rodape__col" aria-label="Capítulos no rodapé">
+    <h3 data-i18n="rodape.explorar">Explorar</h3>
+    <ul>
+      <li><a href="#a-vila" data-i18n="nav.1">A Vila</a></li>
+      <li><a href="#o-lugar" data-i18n="nav.2">O Lugar</a></li>
+      <li><a href="#as-casas" data-i18n="nav.3">As Casas</a></li>
+      <li><a href="#mesa" data-i18n="nav.4">A Mesa</a></li>
+      <li><a href="#bem-estar" data-i18n="nav.5">Bem-estar</a></li>
+      <li><a href="#experiencias" data-i18n="nav.6">Experiências</a></li>
+      <li><a href="#sustentabilidade" data-i18n="nav.7">Sustentabilidade</a></li>
+    </ul>
+  </nav>
+
+  <div class="rodape__col">
+    <h3 data-i18n="rodape.contato">Contato</h3>
+    <p data-i18n="rodape.endereco">Rua do Recife, s/n<br>Litoral Norte — BA, 00000-000</p>
+    <a href="tel:+5571000000000" id="tel">(71) 0000-0000</a>
+    <a href="https://maps.google.com/?q=Litoral+Norte+Bahia" target="_blank" rel="noopener">Google Maps</a>
+  </div>
+
+  <p class="rodape__fim">© 2026 Vila dos Corais · Litoral Norte, Bahia.</p>
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
