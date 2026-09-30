@@ -1,0 +1,72 @@
+/* ==========================================================
+   RESERVA — painel "Consulte suas datas"
+   Fica sobre o fundo escuro da seção #reservar (style.css).
+   ========================================================== */
+
+.reservar--painel,.reservar--painel *,.reservar--painel *::before,.reservar--painel *::after{box-sizing:border-box;}
+.reservar.reservar--painel{
+  display:grid;gap:clamp(3rem,6vw,6rem);align-items:center;
+  text-align:left;
+  padding-inline:max(var(--gutter,1.5rem),calc((100% - 1240px) / 2));
+}
+@media (min-width:900px){
+  .reservar.reservar--painel{grid-template-columns:minmax(0,1fr) minmax(0,27rem);}
+}
+.reservar--painel .reservar__intro .olho{margin-bottom:1.4rem;}
+.reservar--painel .reservar__intro h2{text-align:left;margin:0;}
+.reservar--painel .reservar__intro p{margin:1.8rem 0 0;max-width:40ch;}
+
+.consulta{
+  margin:0;min-width:0;
+  padding:clamp(1.6rem,3vw,2.5rem);
+  border:1px solid rgba(251,251,250,.14);
+  background:rgba(251,251,250,.035);
+}
+.reservar--painel .consulta p{margin:0;max-width:none;}
+.reservar--painel .consulta__titulo{
+  font-family:var(--display,Georgia,serif);font-weight:300;
+  font-size:clamp(1.7rem,2.6vw,2.1rem);line-height:1.1;color:var(--papel,#FBFBFA);
+}
+.reservar--painel .consulta__sub{margin-top:.5rem;font-size:.875rem;color:rgba(251,251,250,.6);}
+
+.consulta__datas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.7rem;margin-top:1.8rem;}
+.consulta__campo{
+  display:block;min-width:0;margin:0;padding:.75rem .95rem;
+  border:1px solid rgba(251,251,250,.18);
+  transition:border-color .3s ease;
+}
+.consulta__campo:focus-within{border-color:rgba(251,251,250,.6);}
+.consulta__campo > span{
+  display:block;margin-bottom:.3rem;
+  font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,251,250,.55);
+}
+.consulta__campo input{
+  width:100%;min-width:0;max-width:100%;padding:0;background:transparent;border:0;outline:none;
+  font-family:var(--corpo,sans-serif);font-weight:300;font-size:.95rem;
+  color:var(--papel,#FBFBFA);color-scheme:dark;
+}
+.consulta__hospedes{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:.7rem;}
+.consulta__hospedes > span{margin:0;}
+.consulta__contador{display:flex;align-items:center;gap:1rem;}
+.consulta__contador button{
+  width:2.1rem;height:2.1rem;border-radius:50%;
+  border:1px solid rgba(251,251,250,.3);background:none;color:var(--papel,#FBFBFA);
+  font:300 1.05rem/1 var(--corpo,sans-serif);cursor:pointer;
+  transition:background .3s ease,border-color .3s ease;
+}
+.consulta__contador button:hover{background:rgba(251,251,250,.1);border-color:rgba(251,251,250,.6);}
+.consulta__contador output{min-width:1.3rem;text-align:center;font-size:1rem;color:var(--papel,#FBFBFA);}
+
+.reservar--painel .consulta__resumo{
+  margin-top:1.5rem;padding-top:1.1rem;border-top:1px solid rgba(251,251,250,.14);
+  font-size:.9rem;color:rgba(251,251,250,.8);
+}
+.consulta .consulta__enviar{
+  display:block;width:100%;margin-top:1.3rem;text-align:center;
+  background:var(--papel,#FBFBFA);color:var(--carvao,#1C1E1D);border-color:var(--papel,#FBFBFA);
+}
+.consulta .consulta__enviar:hover{background:transparent;color:var(--papel,#FBFBFA);}
+.consulta .consulta__enviar.is-pendente{opacity:.82;}
+.reservar--painel .consulta__aviso{min-height:1.3em;margin-top:.9rem;font-size:.85rem;color:#E9C7BE;}
+
+@media (max-width:380px){ .consulta__datas{grid-template-columns:1fr;} }

@@ -228,8 +228,11 @@
          alt="Folha 19 — a estrutura do distrito" loading="lazy" decoding="async">
   </section>
 
-  <!-- ===================== 06 · EXPERIÊNCIAS ===================== -->
-  <section class="capitulo" id="experiencias">
+  <!-- ===================== 06 · UM DIA NA VILA — a rolagem passa as horas =====================
+       Com JavaScript, src/mundo/mundo.js troca esta lista pela viagem de câmera
+       (vídeos em public/mundo/, textos em src/mundo/cenas.js).
+       Sem JavaScript, a lista abaixo continua aparecendo normalmente. -->
+  <section class="capitulo" id="experiencias" data-mundo>
     <h2 class="brilho centro" data-i18n="exp.titulo">Os dias</h2>
     <ul class="dias">
       <li><b data-i18n="exp.1h">7h</b><span data-i18n="exp.1">Café na varanda, servido até as dez</span></li>
@@ -262,11 +265,35 @@
   </section>
 
   <!-- ===================== RESERVAR ===================== -->
-  <section class="reservar" id="reservar">
-    <span class="olho" data-i18n="res.olho">o ano inteiro</span>
-    <h2 class="brilho centro" data-i18n="res.titulo">há encontros que<br>começam antes</h2>
-    <p data-i18n="res.p">Reserva direta, sem comissão de plataforma. Respondemos no mesmo dia.</p>
-    <a class="botao" id="zap" href="#" data-i18n="res.cta">Falar no WhatsApp</a>
+  <!-- Painel de datas (inspirado no Vesper): monta a mensagem do WhatsApp com
+       chegada, saída e hóspedes. Comportamento em src/mundo/reserva.js.
+       O botão continua com id="zap": o main.js coloca o número nele. -->
+  <section class="reservar reservar--painel" id="reservar">
+    <div class="reservar__intro">
+      <span class="olho" data-i18n="res.olho">o ano inteiro</span>
+      <h2 class="brilho" data-i18n="res.titulo">há encontros que<br>começam antes</h2>
+      <p data-i18n="res.p">Reserva direta, sem comissão de plataforma. Respondemos no mesmo dia.</p>
+    </div>
+
+    <form class="consulta" id="consulta" novalidate>
+      <p class="consulta__titulo" data-r="titulo">Consulte suas datas</p>
+      <p class="consulta__sub" data-r="sub">A gente confirma pelo WhatsApp, no mesmo dia.</p>
+      <div class="consulta__datas">
+        <label class="consulta__campo"><span data-r="chegada">Chegada</span><input type="date" name="chegada"></label>
+        <label class="consulta__campo"><span data-r="saida">Saída</span><input type="date" name="saida"></label>
+      </div>
+      <div class="consulta__campo consulta__hospedes">
+        <span data-r="hospedes">Hóspedes</span>
+        <div class="consulta__contador">
+          <button type="button" data-passo="-1" aria-label="Um hóspede a menos">–</button>
+          <output name="hospedes" aria-live="polite">2</output>
+          <button type="button" data-passo="1" aria-label="Um hóspede a mais">+</button>
+        </div>
+      </div>
+      <p class="consulta__resumo" aria-live="polite"></p>
+      <a class="botao consulta__enviar" id="zap" href="#">Pedir estas datas no WhatsApp</a>
+      <p class="consulta__aviso" role="status" aria-live="polite"></p>
+    </form>
   </section>
 
 </main>
@@ -306,5 +333,7 @@
 </footer>
 
 <script type="module" src="/src/main.js"></script>
+<!-- Um dia na Vila (capítulo 06) + painel de reserva -->
+<script type="module" src="/src/mundo/index.js"></script>
 </body>
 </html>

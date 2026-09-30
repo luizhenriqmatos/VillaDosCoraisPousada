@@ -1,0 +1,166 @@
+/* ==========================================================
+   UM DIA NA VILA — aparência do capítulo 06
+   Usa as cores e fontes do style.css (--papel, --grafite,
+   --display, --corpo...). Os valores depois da vírgula são
+   reserva, caso alguma variável não exista.
+   ========================================================== */
+
+.mundo,.mundo *,.mundo *::before,.mundo *::after{box-sizing:border-box;}
+.mundo{
+  position:relative;
+  height:calc(8.25 * 100vh);          /* o JavaScript acerta a altura exata */
+  padding:0;
+  background:var(--nevoa,#EFEEEA);
+  color:var(--grafite,#2A2C2B);
+}
+
+/* versão para leitor de tela: invisível, mas lida */
+.mundo__leitura{
+  position:absolute;left:0;top:0;width:1px;height:1px;overflow:hidden;
+  clip-path:inset(50%);white-space:nowrap;
+}
+.mundo__leitura a:focus-visible{
+  position:fixed;left:1rem;bottom:1rem;z-index:80;width:auto;height:auto;
+  clip-path:none;padding:.8rem 1.2rem;background:var(--grafite,#2A2C2B);color:var(--papel,#FBFBFA);
+}
+
+.mundo__palco{
+  position:sticky;top:0;
+  height:100vh;height:100svh;
+  overflow:hidden;
+  --mundo-destaque:#A87A70;
+  --mundo-tinta:var(--grafite,#2A2C2B);
+  transition:color .8s ease;
+}
+.mundo__palco.is-escuro{ --mundo-tinta:var(--papel,#FBFBFA); color:var(--papel,#FBFBFA); }
+
+.mundo__cenas,.mundo__cena{position:absolute;inset:0;}
+.mundo__cena{opacity:0;will-change:opacity;}
+.mundo__quadro,.mundo__video{
+  position:absolute;inset:0;width:100%;height:100%;max-width:none;
+  object-fit:cover;object-position:50% 45%;
+}
+.mundo__quadro{transform-origin:50% 45%;will-change:transform;}
+.mundo__video{z-index:1;}
+.mundo__cena.tem-video .mundo__quadro{opacity:0;}
+
+/* véu atrás do texto: claro de dia, escuro à noite */
+.mundo__veu{position:absolute;inset:0;pointer-events:none;transition:opacity .9s ease;z-index:4;}
+.mundo__veu--claro{
+  background:linear-gradient(90deg,rgba(239,238,234,.9) 0%,rgba(239,238,234,.66) 24%,rgba(239,238,234,.18) 44%,rgba(239,238,234,0) 58%);
+}
+.mundo__veu--escuro{
+  opacity:0;
+  background:linear-gradient(90deg,rgba(22,24,26,.74) 0%,rgba(22,24,26,.5) 26%,rgba(22,24,26,.12) 46%,rgba(22,24,26,0) 60%);
+}
+.mundo__palco.is-escuro .mundo__veu--claro{opacity:0;}
+.mundo__palco.is-escuro .mundo__veu--escuro{opacity:1;}
+
+/* "06 · um dia na vila" no canto de cima */
+.mundo__capitulo{
+  position:absolute;z-index:6;left:var(--gutter,6vw);top:clamp(5.2rem,13vh,8rem);
+  font-family:var(--corpo,sans-serif);font-weight:300;font-size:.75rem;letter-spacing:.14em;
+  color:var(--mundo-tinta);opacity:.62;
+}
+
+/* texto de cada cena */
+.mundo__textos{position:absolute;inset:0;z-index:5;pointer-events:none;}
+.mundo__texto{
+  position:absolute;left:var(--gutter,6vw);top:52%;translate:0 -50%;
+  width:min(40vw,30rem);opacity:0;visibility:hidden;will-change:opacity,transform;
+  color:var(--mundo-tinta);
+}
+.mundo__hora{
+  display:block;
+  font-family:var(--display,Georgia,serif);font-weight:300;
+  font-size:clamp(3.4rem,7.2vw,6.6rem);line-height:.9;letter-spacing:-.01em;
+  color:var(--mundo-destaque);
+  transition:color .8s ease;
+}
+.mundo .mundo__titulo{
+  margin:1.1rem 0 0;
+  font-family:var(--display,Georgia,serif);font-weight:300;
+  font-size:clamp(1.9rem,3.5vw,3.1rem);line-height:1.06;letter-spacing:0;text-transform:none;
+  color:inherit;text-wrap:balance;
+}
+.mundo .mundo__frase{
+  margin:1.1rem 0 0;max-width:34ch;
+  font-family:var(--corpo,sans-serif);font-weight:300;
+  font-size:clamp(.98rem,1.05vw,1.08rem);line-height:1.7;
+  color:inherit;opacity:.86;
+}
+.mundo__acoes{display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem 2rem;margin-top:2rem;}
+.mundo__botao{
+  display:inline-block;padding:1rem 2.4rem;text-decoration:none;
+  font-family:var(--corpo,sans-serif);font-weight:300;font-size:.875rem;letter-spacing:.07em;
+  color:var(--carvao,#1C1E1D);background:var(--papel,#FBFBFA);border:1px solid var(--papel,#FBFBFA);
+  transition:background .4s ease,color .4s ease;
+}
+.mundo__botao:hover{background:transparent;color:var(--papel,#FBFBFA);}
+.mundo__elo{
+  font-family:var(--corpo,sans-serif);font-weight:300;font-size:.8125rem;letter-spacing:.09em;
+  color:inherit;text-decoration:none;padding-bottom:.35rem;border-bottom:1px solid currentColor;
+}
+
+/* relógio: as horas do dia na lateral direita */
+.mundo__relogio{
+  position:absolute;z-index:6;right:var(--gutter,6vw);top:50%;translate:0 -50%;
+  margin:0;padding:.4rem 0;list-style:none;
+  display:flex;flex-direction:column;gap:1.35rem;
+  color:var(--mundo-tinta);
+}
+.mundo__relogio::before,.mundo__ponteiro{
+  content:"";position:absolute;right:4px;top:.9rem;bottom:.9rem;width:1px;
+}
+.mundo__relogio::before{background:currentColor;opacity:.22;}
+.mundo__ponteiro{background:var(--mundo-destaque);transform-origin:50% 0;transform:scaleY(0);transition:background .8s ease;}
+.mundo__ponto{
+  display:flex;align-items:center;justify-content:flex-end;gap:.85rem;
+  padding:.15rem 0;background:none;border:0;cursor:pointer;color:inherit;
+  font-family:var(--corpo,sans-serif);font-weight:300;font-size:.75rem;letter-spacing:.12em;
+  opacity:.5;transition:opacity .4s ease;
+}
+.mundo__ponto:hover,.mundo__ponto.is-ativo{opacity:1;}
+.mundo__ponto i{
+  position:relative;z-index:1;width:9px;height:9px;border-radius:50%;
+  border:1px solid currentColor;background:var(--nevoa,#EFEEEA);
+  transition:background .4s ease,transform .4s ease;
+}
+.mundo__palco.is-escuro .mundo__ponto i{background:#22262B;}
+.mundo__ponto.is-ativo i{background:var(--mundo-destaque);border-color:var(--mundo-destaque);transform:scale(1.35);}
+
+/* dica de rolagem */
+.mundo__dica{
+  position:absolute;z-index:6;left:50%;bottom:clamp(1.6rem,5vh,3rem);translate:-50% 0;
+  margin:0;display:flex;flex-direction:column;align-items:center;gap:.8rem;
+  font-family:var(--corpo,sans-serif);font-weight:300;font-size:.75rem;letter-spacing:.14em;
+  color:var(--mundo-tinta);
+}
+.mundo__dica::after{
+  content:"";width:1px;height:2.4rem;background:currentColor;opacity:.5;
+  transform-origin:50% 0;animation:mundo-desce 2.2s cubic-bezier(.6,0,.2,1) infinite;
+}
+@keyframes mundo-desce{0%{transform:scaleY(0);opacity:0}30%{opacity:.6}100%{transform:scaleY(1);opacity:0}}
+
+/* celular e telas estreitas: texto embaixo, véu vindo de baixo */
+@media (max-width:860px){
+  .mundo__veu--claro{background:linear-gradient(0deg,rgba(239,238,234,.94) 0%,rgba(239,238,234,.72) 30%,rgba(239,238,234,0) 56%);}
+  .mundo__veu--escuro{background:linear-gradient(0deg,rgba(22,24,26,.82) 0%,rgba(22,24,26,.55) 32%,rgba(22,24,26,0) 58%);}
+  .mundo__texto{
+    left:var(--gutter,1.5rem);right:var(--gutter,1.5rem);width:auto;top:auto;translate:none;
+    bottom:calc(clamp(3.2rem,9vh,5rem) + env(safe-area-inset-bottom));
+  }
+  .mundo__hora{font-size:clamp(2.8rem,14vw,4.2rem);}
+  .mundo .mundo__titulo{font-size:clamp(1.7rem,7.4vw,2.3rem);margin-top:.6rem;}
+  .mundo .mundo__frase{font-size:.98rem;margin-top:.7rem;}
+  .mundo__relogio{right:.9rem;gap:1rem;}
+  .mundo__ponto span{display:none;}
+  .mundo__ponto{padding:.45rem 0;}
+  .mundo__dica{display:none;}
+  .mundo__capitulo{top:4.6rem;}
+  .mundo__quadro,.mundo__video{object-position:50% 46%;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .mundo__dica::after{animation:none;}
+}
